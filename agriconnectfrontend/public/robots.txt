@@ -1,0 +1,121 @@
+import React, { useState } from "react";
+import RoleBasedLoginForm from "./RoleBasedLoginForm"; // your OTP login component
+
+const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [otpStep, setOtpStep] = useState(false); // show OTP form after sending
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // ---------------- Email + Password Login ----------------
+  const handleEmailLogin = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const res = await fetch("/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await res.json();
+
+      if (data.error) {
+        setError(data.error);
+      } else {
+        localStorage.setItem("currentUser", JSON.stringify(data));
+        switch (data.role) {
+          case "USER":
+            window.location.href = "/buyer-dashboard";
+            break;
+          case "VENDOR":
+            window.location.href = "/vendor-dashboard";
+            break;
+          case "ADMIN":
+            window.location.href = "/admin-dashboard";
+            break;
+          default:
+            window.location.href = "/";
+        }
+      }
+    } catch (err) {
+      console.error(err);
+      setError("Email login failed. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // ---------------- Phone + OTP Login ----------------
+  const handleOtpLogin = () => {
+    if (!phone) {
+      setError("Please enter your phone number");
+      return;
+    }
+    setError("");
+    setOtpStep(true); // show OTP login form
+  };
+
+  return (
+    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
+      <h2>Login</h2>
+
+      {/* Email login fields */}
+      <form onSubmit={handleEmailLogin}>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+          required
+        />
+        <button type="submit" style={{ width: "100%", padding: "10px", marginBottom: "10px" }}>
+          {loading ? "Logging in..." : "Login with Email"}
+        </button>
+      </form>
+
+      <hr style={{ margin: "20px 0" }} />
+
+      {/* Phone OTP login */}
+      {!otpStep && (
+        <>
+          <input
+            type="text"
+            placeholder="Phone Number"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
+          />
+          <button
+            onClick={handleOtpLogin}
+            style={{ width: "100%", padding: "10px" }}
+          >
+            Login with OTP
+          </button>
+        </>
+      )}
+
+      {/* OTP Form */}
+      {otpStep && <RoleBasedLoginForm phone={phone} />}
+
+      {error && (
+        <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
+      )}
+    </div>
+  );
+};
+
+export default LoginPage;

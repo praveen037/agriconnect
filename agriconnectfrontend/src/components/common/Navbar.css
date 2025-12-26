@@ -1,0 +1,95 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1a; /* Dark theme */
+  color: #fff;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: Arial, sans-serif;
+}
+
+/* Logo */
+.navbar_logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #00ffcc; /* Neon-style */
+}
+
+/* Hamburger menu for mobile */
+.navbar_toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* Navbar links */
+.navbar_links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* Links styling */
+.navbar_links li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: 0.3s;
+}
+
+/* Hover effect */
+.navbar_links li a:hover {
+  color: #00ffcc;
+}
+
+/* Cart badge */
+.cart-link {
+  position: relative;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Responsive: Mobile */
+@media (max-width: 768px) {
+  .navbar_toggle {
+    display: block;
+  }
+
+  .navbar_links {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #1a1a1a;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .navbar_links.active {
+    max-height: 500px; /* Enough to show all items */
+  }
+
+  .navbar_links li {
+    padding: 10px 0;
+    text-align: center;
+  }
+}

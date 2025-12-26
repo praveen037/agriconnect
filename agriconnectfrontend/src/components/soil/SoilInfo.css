@@ -1,0 +1,120 @@
+.soil {
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  font-family: "Poppins", sans-serif;
+  color: #1b5e20;
+  text-align: center;
+}
+
+.soil h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  color: #2e7d32;
+  position: relative;
+}
+
+.soil h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #66bb6a;
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+.soil__text {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+  color: #424242;
+}
+
+.soil__list {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem auto 2rem;
+  max-width: 800px;
+  text-align: left;
+}
+
+.soil__list li {
+  background: #ffffff;
+  padding: 0.8rem 1.2rem;
+  margin: 0.6rem 0;
+  border-radius: 8px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.soil__list li:hover {
+  transform: translateY(-3px);
+  background: #f9fff9;
+}
+
+.soil__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.soil__card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+  border-left: 6px solid #81c784;
+}
+
+.soil__card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.soil__card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #2e7d32;
+}
+
+.soil__card p {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 0.5rem;
+}
+
+.read-more-btn {
+  display: inline-block;
+  margin-top: 0.4rem;
+  background-color: #81c784;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.read-more-btn:hover {
+  background-color: #66bb6a;
+}
+
+@media (max-width: 600px) {
+  .soil {
+    padding: 2rem 1rem;
+  }
+
+  .soil h2 {
+    font-size: 1.6rem;
+  }
+
+  .soil__card {
+    padding: 1.2rem;
+  }
+}

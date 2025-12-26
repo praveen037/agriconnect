@@ -1,0 +1,86 @@
+.home {
+  background: url("https://images.nationalgeographic.org/image/upload/v1638892233/EducationHub/photos/crops-growing-in-thailand.jpg") center/cover no-repeat;
+  color: white;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.home::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.home__content {
+  position: relative;
+  z-index: 1;
+  max-width: 750px;
+}
+
+.home__content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #e8f5e9;
+}
+
+.home__content p {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: whitesmoke;
+}
+
+.home__features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: #ebedea;
+}
+
+.home__features li {
+  margin-bottom: 0.5rem;
+}
+
+.home__buttons .btn {
+  padding: 10px 20px;
+  background-color: #66bb6a;
+  color: white;
+  border: none;
+  margin: 0 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.home__buttons .btn--secondary {
+  background-color: #43a047;
+}
+
+.home__buttons .btn:hover {
+  background-color: #81c784;
+}
+
+@media (max-width: 768px) {
+  .home__content h1 {
+    font-size: 2rem;
+  }
+
+  .home__content p,
+  .home__features {
+    font-size: 1rem;
+  }
+
+  .home {
+    height: auto;
+    padding: 4rem 1rem;
+  }
+}

@@ -1,0 +1,118 @@
+/* ===== Base Order Card ===== */
+.order-card {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px 25px;
+  background: linear-gradient(135deg, #e8f5e9 0%, #f1f8e9 100%);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(46, 125, 50, 0.15);
+  border: 1px solid #1b5e20;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e7d32;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(46, 125, 50, 0.25);
+}
+
+/* ===== Header ===== */
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #1b5e20;
+}
+
+.order-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.order-header span {
+  font-weight: 600;
+}
+
+.expand-icon {
+  font-size: 1.2rem;
+}
+
+/* ===== Order Items ===== */
+.order-items {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.order-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  background: #f9fff9;
+  border: 1px solid #1b5e20;
+  border-radius: 12px;
+  gap: 12px;
+}
+
+.item-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.item-info p {
+  margin: 3px 0;
+  font-size: 0.95rem;
+}
+
+/* ===== Footer ===== */
+.order-footer {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 2px solid #1b5e20;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.order-footer p {
+  font-weight: 600;
+}
+
+/* ===== Product Image Container ===== */
+.order-item img.product-image {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #1b5e20;
+  background: #f1f8e9;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .order-card {
+    padding: 15px 20px;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-footer {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .order-item img.product-image {
+    width: 100%;
+    height: auto;
+  }
+}

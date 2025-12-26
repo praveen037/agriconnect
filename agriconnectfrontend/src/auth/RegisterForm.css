@@ -1,0 +1,96 @@
+/* ======== General Container ======== */
+.register-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.register-container:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* ======== Heading ======== */
+.register-container h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* ======== Form Fields ======== */
+.register-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.register-container input,
+.register-container select {
+  margin-bottom: 15px;
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.register-container input:focus,
+.register-container select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* ======== Labels ======== */
+.register-container label {
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+  font-size: 14px;
+}
+
+/* ======== Dropdown Styles ======== */
+.register-container select {
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* ======== Submit Button ======== */
+.register-container button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.register-container button[type="submit"]:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+
+/* ======== Responsive Design ======== */
+@media (max-width: 600px) {
+  .register-container {
+    padding: 25px;
+  }
+
+  .register-container h2 {
+    font-size: 22px;
+  }
+
+  .register-container input,
+  .register-container select {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
